@@ -1,0 +1,4 @@
+1.执行python3 manage.py makemigrations  生成数据库迁移脚本
+2.执行python3 manage.py migrate         对应数据库生成相应表结构
+3.解决debug=False时，静态资源无法加载：python3 manage.py runserver 127.0.0.1:9998 --insecure
+  详情：https://my.oschina.net/zyzzy/blog/173262

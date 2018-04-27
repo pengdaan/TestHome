@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>- 空白页</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../static/css/font-awesome.css" rel="stylesheet">
+        <link href="../../static/css/animate.css" rel="stylesheet">
+        <link href="../../static/css/style.css" rel="stylesheet">
+        <style>
+            .col-center-block {
+                float: none;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+</style>
+
+    </head>
+
+    <body class="gray-bg">
+        <div class="row wrapper border-bottom white-bg page-heading ">
+            <div class="col-sm-4">
+                 <h2>项目管理</h2>
+                <ol class="breadcrumb">
+                    <li> <a href="#">TestHome </a>
+                    </li>
+                    <li> <strong>新增项目</strong>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-6 center-block" style="width:100%;height:auto">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content" id="add_project">
+                                        <form class="form-horizontal">
+                                            <div class="form-group has-feedback">
+                                                <label class="col-sm-3 control-label" for="project_name">项目名称：</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="project_name" aria-describedby="inputSuccess3Status" name="project_name" placeholder="请输入项目名称" value=""> <span class="glyphicon glyphicon-th-large form-control-feedback" aria-hidden="true"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <label class="col-sm-3 control-label" for="responsible_name">负责人：</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="responsible_name" name="responsible_name" aria-describedby="inputSuccess3Status" placeholder="请指定项目负责人" value=""> <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <label class="col-sm-3 control-label" for="test_user">测试人员：</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="test_user" name="test_user" aria-describedby="inputSuccess3Status" placeholder="请输入参与的测试人员" value=""> <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <label class="col-sm-3 control-label" for="dev_user">开发人员：</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="dev_user" name="dev_user" aria-describedby="inputSuccess3Status" placeholder="请输入项目参与的研发人员" value=""> <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <label class="col-sm-3 control-label" for="publish_app">发布应用：</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="publish_app" name="publish_app" aria-describedby="inputSuccess3Status" placeholder="请输入发布的应用" value=""> <span class="glyphicon glyphicon-upload form-control-feedback" aria-hidden="true"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <label class="col-sm-3 control-label" for="simple_desc">简要描述：</label>
+                                                <div class="col-sm-8">
+                                                    <textarea type="text" rows="10" class="form-control" id="simple_desc" name="simple_desc" aria-describedby="inputSuccess3Status" placeholder="项目简单概述"></textarea> <span class="glyphicon glyphicon-paperclip form-control-feedback" aria-hidden="true"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <label class="col-sm-3 control-label" for="other_desc">其他信息：</label>
+                                                <div class="col-sm-8">
+                                                    <textarea type="text" rows="5" class="form-control" id="other_desc" name="other_desc" aria-describedby="inputSuccess3Status" placeholder="项目其他相关信息描述"></textarea> <span class="glyphicon glyphicon-paperclip form-control-feedback" aria-hidden="true"></span>
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="row form-group am-cf">
+                                            <div class="col-sm-4 col-sm-offset-3">
+                                                <p></p>
+                                                <button class="btn btn-primary" type="button" style="margin:0px auto;display: table;" id="add_send" onclick="add_project()">点 击 提 交</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 全局js -->
+        <script>
+            function add_project() {
+                var project_name = $("#project_name").serializeJSON();
+                var responsible_name = $("#responsible_name").serializeJSON();
+                var test_user = $("#test_user").serializeJSON();
+                var dev_user = $("#dev_user").serializeJSON();
+                var publish_app = $("#publish_app").serializeJSON();
+                var simple_desc = $("#simple_desc").serializeJSON();
+                var other_desc = $("#other_desc").serializeJSON();
+                var peojects = {
+                        "project_name": project_name.project_name,
+                        "responsible_name": responsible_name.responsible_name,
+                        "test_user": test_user.test_user,
+                        "dev_user": dev_user.dev_user,
+                        "publish_app": publish_app.publish_app,
+                        "simple_desc": simple_desc.simple_desc,
+                        "other_desc": other_desc.other_desc
+                };
+
+                $.ajax({
+                    type: 'post',
+                    url: '/api/add_project/',
+                    data: JSON.stringify(peojects),
+                    contentType: "application/json",
+                    success: function (data) {
+                            if (data.code=='ok') {
+                                window.location.reload();
+                            } else {
+                                alert(data)
+                            }                    }
+                });
+            }
+
+        </script>
+        <script src="../../static/js/jquery.min.js"></script>
+        <script src="../../static/js/bootstrap.min.js"></script>
+        <script src="../../static/js/jquery.serializejson.min.js"></script>
+        <!-- 自定义js -->
+    </body>
+
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - 添加用例</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../../static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../../static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="../../static/css/animate.css" rel="stylesheet">
+    <link href="../../static/css/style.css?v=4.1.0" rel="stylesheet">
+
+
+</head>
+
+<body class="gray-bg">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>添加用例</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="index.html">主页</a>
+                </li>
+                <li>
+                    <strong>用例管理</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-sm-8">
+            <div class="title-action">
+                <a href="add_case.html" class="btn btn-primary">活动区域</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="">
+                    <ul class="nav nav-tabs" id="tab-test">
+    <li><a href="#messages_1">messages</a></li>
+    <li><a href="#variables_1">variables</a></li>
+    <li><a href="#request_1">request</a></li>
+    <li><a href="#extract_1">extract/validate</a></li>
+</ul>
+                    <div class="tab-content">
+  <div class="tab-pane active" id="messages_1">
+      <div class="am-tab-panel" id="tab1">
+                                <form class="form-horizontal" id="form_message">
+                                    <div class="form-group has-feedback has-info">
+                                        <label for="case_name" class="col-md-2 control-label text-info" style="font-size: 14px;">case_name:</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" id="case_name" placeholder="用例名称" name="case_name" value="">
+                                            <span class="glyphicon glyphicon-certificate form-control-feedback"
+                                                  aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group has-success">
+                                        <label for="project" class="col-md-2 control-label text-info" style="font-size: 14px;">project:</label>
+                                        <div class="col-md-4">
+                                            <select name="project" class="form-control" id="belong_project" onclick=info_ajax("#form_message")>
+                                                {% for foo in project_list %}
+                                                    <option value="{{ foo.project_name  }}">{{ foo.project_name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group has-success">
+                                        <label for="module" class="col-md-2 control-label text-info" style="font-size: 14px;">module:</label>
+                                        <div class="col-md-4">
+                                            <select id="belong_module_id" name="module" class="form-control">
+                                            {% for row in models_list %}
+                                                <option value="{{ row.id }}">{{ row.models_name }}</option>
+                                            {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group has-feedback has-info">
+                                        <label for="include" class="col-md-2 control-label text-info" style="font-size: 14px;">include:</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" id="dev_name"
+                                                   placeholder="config>case_name1>casename2"
+                                                   name="include"
+                                                   value="">
+                                            <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group has-feedback has-info">
+                                        <label for="author" class="col-md-2 control-label text-info" style="font-size: 14px;">author:</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" id="dev_name" placeholder="创建者" name="author"
+                                                   value="">
+                                            <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+  </div>
+  <div class="tab-pane" id="variables_1">
+      <div class="am-tab-panel" id="tab2">
+                                <button class="btn btn-info" value="添 加" onclick="addNewRow('variables')">add variables</button>
+                                <button class="btn btn-danger" value="删 除" onclick="removeRow('variables')">del variables</button>
+                                <button class="btn btn-info" value="添 加" onclick="addNewRow('setup')">add setup</button>
+                                <button class="btn btn-danger" value="删 除" onclick="removeRow('setup')">del setup</button>
+                                <button class="btn btn-info" value="添 加" onclick="addNewRow('teardown')">add teardown</button>
+                                <button class="btn btn-danger" value="删 除" onclick="removeRow('teardown')">del teardown</button>
+                                <form id="form_variables">
+                                    <table class="table table-hover table-condensed table-bordered table-striped" id="variables">
+                                        <caption>Variables:</caption>
+                                        <thead>
+                                        <tr class="active text-success">
+                                            <th width="5%" align="center">Option</th>
+                                            <th width="40%" align="center">Key</th>
+                                            <th width="55%" align="center">Value</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <form id="form_setup">
+                                    <table class="table table-hover table-condensed table-bordered table-striped" id="setup">
+                                        <caption>setUp:</caption>
+                                        <thead>
+                                        <tr class="active text-success">
+                                            <th width="5%" align="center">Option</th>
+                                            <th width="40%" align="center">Key</th>
+                                            <th width="55%" align="center">Value</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </form>
+
+                                <form id="form_teardown">
+                                    <table class="table table-hover table-condensed table-bordered table-striped" id="teardown">
+                                        <caption>tearDown:</caption>
+                                        <thead>
+                                        <tr class="active text-success">
+                                            <th width="5%" align="center">Option</th>
+                                            <th width="40%" align="center">Key</th>
+                                            <th width="55%" align="center">Value</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+  </div>
+  <div class="tab-pane" id="request_1">
+      <div class="am-tab-panel" id="tab3">
+                                <div class="form-inline">
+                                    <div class="form-group has-success">
+                                        <label for="url" style="font-size: 14px;">Api Url:</label>
+                                        <input type="text" class="form-control am-input-sm " placeholder="api url" name="url" id="url">
+                                    </div>
+
+                                    <div class="form-group has-warning">
+                                        <label for="method" style="font-size: 14px;"><code>&nbsp;</code>Method:</label>
+                                        <select class="form-control" name="method" id="method">
+                                            <option>POST</option>
+                                            <option>GET</option>
+                                            <option>PUT</option>
+                                            <option>DELETE</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group has-warning ">
+                                        <label for="DataType" style="font-size: 14px;"><code>&nbsp;</code>DataType:</label>
+                                        <select class="form-control" name="DataType" id="DataType">
+                                            <option>data</option>
+                                            <option>json</option>
+                                            <option>params</option>
+                                        </select>
+                                    </div>
+                                    <button class="btn btn-info" value="添 加" onclick="addNewRow('data')">add data</button>
+                                    <button class="btn btn-danger" value="删 除" onclick="removeRow('data')">del data</button>
+                                    <button class="btn btn-info" value="添 加" onclick="addNewRow('header')">add headers</button>
+                                    <button class="btn btn-danger" value="删 除" onclick="removeRow('header')">del headers</button>
+                                    <form id="form_request_data">
+                                        <table class="table table-hover table-condensed table-bordered table-striped" id="data">
+                                            <caption>request:</caption>
+                                            <thead>
+                                            <tr class="active text-success">
+                                                <th width="5%" align="center">Option</th>
+                                                <th width="40%" align="center">Key</th>
+                                                <th width="55%" align="center">Value</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                    <form id="form_request_headers">
+                                        <table class="table table-hover table-condensed table-bordered table-striped" id="header">
+                                            <caption>headers:</caption>
+                                            <thead>
+                                            <tr class="active text-success">
+                                                <th width="5%" align="center">Option</th>
+                                                <th width="40%" align="center">Key</th>
+                                                <th width="55%" align="center">Value</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+  </div>
+  <div class="tab-pane" id="extract_1">
+      <div class="am-tab-panel" id="tab4">
+                                <button class="btn btn-info" value="添 加" onclick="addNewRow('extract')">add extract</button>
+                                <button class="btn btn-danger" value="删 除" onclick="removeRow('extract')">del extract</button>
+                                <button class="btn btn-info" value="添 加" onclick="addNewRow('validate')">add validate</button>
+                                <button class="btn btn-danger" value="删 除" onclick="removeRow('validate')">del validate</button>
+                                <form id="form_extract">
+                                    <table class="table table-hover table-condensed table-bordered table-striped" id="extract">
+                                        <caption>extract:</caption>
+                                        <thead>
+                                        <tr class="active text-success">
+                                            <th width="5%" align="center">Option</th>
+                                            <th width="40%" align="center">Key</th>
+                                            <th width="55%" align="center">Value</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <form id="form_validate">
+                                    <table class="table table-hover table-condensed table-bordered table-striped" id="validate">
+                                        <caption>validate:</caption>
+                                        <thead>
+                                        <tr class="active text-success">
+                                            <th width="2%" align="center">Option</th>
+                                            <th width="38%" align="center">Check</th>
+                                            <th width="10%" align="center">Comparator</th>
+                                            <th width="50%" align="center">Expected</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+  </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+            <div class="" style="margin-left: 11%;">
+                <button type="button" class="" onclick="case_ajax()">点 击 提 交</button>&nbsp;
+                &raquo; &nbsp;
+                <a type="submit" href="/api/add_config/" class="">新 增 配 置</a>
+
+            </div>
+        </div>
+    <!-- 全局js -->
+    <script src="../../static/js/jquery.min.js?v=2.1.4"></script>
+    <script src="../../static/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../../static/js/jquery.serializejson.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="../../static/js/content.js?v=1.0.0"></script>
+    <script>
+        index = 1;
+        function addNewRow(id) {
+            var tabObj = document.getElementById(id);//获取添加数据的表格
+            var rowsNum = tabObj.rows.length;  //获取当前行数
+            var attribute = id;
+            var style = 'width:100%; border: none';
+            var cellHtml1 = "<input type='text' name='cell1_key" + id + index + "'  value='' style='" + style + "' />";
+            var cellHtml2 = "<input type='text' name='cell2_value" + id + index + "' value='' style='" + style + "' />";
+            var cellHtml3 = "<input type='text' name='cell3_value" + id + index + "' value='' style='" + style + "' />";
+            var myNewRow = tabObj.insertRow(rowsNum);
+            var newTdObj0 = myNewRow.insertCell(0);
+            var newTdObj1 = myNewRow.insertCell(1);
+            var newTdObj2 = myNewRow.insertCell(2);
+            newTdObj0.innerHTML = "<input type='checkbox' name='" + attribute + "' id='chkArr_" + index + "' style='width:55px' />";
+            newTdObj1.innerHTML = cellHtml1;
+            if (id !== 'validate') {
+                newTdObj2.innerHTML = cellHtml2;
+            } else {
+                newTdObj2.innerHTML = "<select name='cell_2comparator" + id + index + "' class='form-control' style='height: 25px; font-size: 15px; " +
+                    "padding-top: 0px; padding-left: 0px; border: none'> " +
+                    "<option>equals</option> <option>contains</option> <option>startswith</option> <option>endswith</option> <option>regex_match</option> <option>type_match</option> <option>contained_by</option> <option>less_than</option> <option>less_than_or_equals</option> <option>greater_than</option> <option>greater_than_or_equals</option> <option>not_equals</option> <option>string_equals</option> <option>length_equals</option> <option>length_greater_than</option> <option>length_greater_than_or_equals</option> <option>length_less_than</option> <option>length_less_than_or_equals</option></select>";
+                var newTdObj3 = myNewRow.insertCell(3);
+                newTdObj3.innerHTML = cellHtml3;
+            }
+            index++;
+
+        }
+
+        /*表格删除行*/
+        function removeRow(id) {
+            var attribute = id;
+            var chkObj = document.getElementsByName(attribute);
+            var tabObj = document.getElementById(id);
+            for (var k = 0; k < chkObj.length; k++) {
+                if (chkObj[k].checked) {
+                    tabObj.deleteRow(k + 1);
+                    k = -1;
+                }
+            }
+        }
+
+        $(function () {
+            $('#tab-test a:last').tab('show');
+        })
+        $('#tab-test a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        })
+
+    </script>
+    <script>
+        function case_ajax(type) {
+            var belong_project_id=$("#belong_project").val();
+            var module_id=$("#belong_module_id").val();
+            var url = $("#url").serializeJSON();
+            var method = $("#method").serializeJSON();
+            var dataType = $("#DataType").serializeJSON();
+            var caseInfo = $("#form_message").serializeJSON();
+            var variables = $("#form_variables").serializeJSON();
+            var request_data = $("#form_request_data").serializeJSON();
+            var headers = $("#form_request_headers").serializeJSON();
+            var extract = $("#form_extract").serializeJSON();
+            var validate = $("#form_validate").serializeJSON();
+            var setup = $("#form_setup").serializeJSON();
+            var teardown = $("#form_teardown").serializeJSON();
+            var test = {
+                "test": {
+                    "name": caseInfo,
+                    "project":belong_project_id,
+                    "module":module_id,
+                    "variables": variables,
+                    "setup": setup,
+                    "request": {
+                        "url": url.url,
+                        "method": method.method,
+                        "headers": headers,
+                        "type": dataType.DataType,
+                        "request_data": request_data
+                    },
+                    "teardown": teardown,
+                    "extract": extract,
+                    "validate": validate
+
+                }
+            };
+            if (type === 'edit') {
+                url = '/api/edit_case/1/';
+            } else {
+                url = '/api/add_case/';
+            }
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: JSON.stringify(test),
+                contentType: "application/json",
+                success: function (data) {
+                        if (data.code === 'ok') {
+                            //window.location.href = "/api/login";
+                            window.location.reload();
+
+                        } else {
+                            alert(data)
+                        }
+                    },
+                    error: function () {
+                        alert('Sorry，服务器可能开小差啦, 请重试!');
+                    }
+            });
+        }
+    </script>
+    
+
+</body>
+
+</html>
