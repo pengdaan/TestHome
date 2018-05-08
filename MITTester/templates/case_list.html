@@ -28,10 +28,10 @@
                     <div class="col-sm-12">
                         <!-- Example Events -->
                         <div class="example-wrap">
-                            <h4 class="example-title">项目列表</h4>
+                            <h4 class="example-title">用例列表</h4>
                             <div class="example">
                                 <div class="alert alert-success"  >
-                                    项目列表
+                                    用例列表
                                 </div>
                                 <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
                                     <a type="button" class="btn btn-outline btn-default" href="/add_project/">
@@ -70,7 +70,8 @@
                                             <td name="create_time">{{ row.create_time }}</td>
                                             <td name="status">{{ row.status }}</td>
                                             <td >
-                                                <a class="fa fa-pencil icon edit-row" href="/edit_project.html?id={{ row.id }}"></a>
+{#                                                <a class="fa fa-pencil icon edit-row"  href="/edit_case.html?id={{ row.id }}"></a>#}
+                                                <a class="fa fa-pencil icon edit-row"  onclick="post('/api/edit_case/', {'id':'{{ row.id }}'})"></a>
                                                 <a class="fa fa-street-view icon view-row" onclick="post('/api/run_case/', {'id':'{{ row.id }}', 'mode':'run_by_test'})"></a>
 
                                             </td>

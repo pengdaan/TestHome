@@ -107,8 +107,29 @@ def add_case(request):
     elif request.method == 'GET':
         return render(request,'add_case.html',{'project_list':project_list,'models_list':models_list})
 
-'''单个执行'''
 
+# 编辑case
+def edit_case(request):
+
+    if request.method=='POST':
+        id=request.POST.get('id')
+        print(id)
+        test_info=CaseInfo.objects.get_case_by_id(id)
+        request=eval(test_info[0].request)
+        manage_info ={
+            'info': test_info[0],
+            'request': request['test']
+        }
+        return render_to_response('edit_case.html',manage_info)
+    elif request.is_ajax():
+        project_info = json.loads(request.body.decode('utf-8'))
+        msg = module_info_logic(type=False, **project_info)
+        return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
+
+
+
+
+'''单个执行'''
 
 def run_test(request):
     if request.method == 'POST':

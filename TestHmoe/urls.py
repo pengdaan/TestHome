@@ -33,6 +33,8 @@ urlpatterns = [
     url(r'^add_case.html$',add_case),
     url(r'^api/add_case/',add_case),
     url(r'^api/run_case/',run_test),
+    url(r'^edit_case.html$', edit_case),
+    url(r'^api/edit_case/', edit_case),
     url(r'^404/', page_not_found),
     url(r'^500/', page_error),
     url(r'^test/',mock_test)
