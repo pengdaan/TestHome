@@ -98,13 +98,11 @@ def key_value_list(name='false', **kwargs):
 
 def case_info_logic(type=True, **kwargs):
     test = kwargs.pop('test')
-    print(test.get('name').get('project'))
-    print(test.get('name').get('module'))
     if test.get('name').get('case_name') is '':
         return '用例名称不可为空'
-    if test.get('name').get('project') is None or test.get('name').get('project') is '':
+    if test.get('name').get('belong_project_id') is None or test.get('name').get('belong_project_id') is '':
         return '请先添加项目'
-    if test.get('name').get('module') is None or test.get('name').get('module') is '':
+    if test.get('name').get('models_name') is None or test.get('name').get('models_name') is '':
         return '请先添加模块'
     if test.get('name').get('author') is '':
         return '创建者不能为空'

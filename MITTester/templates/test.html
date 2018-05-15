@@ -1,4 +1,34 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="uk-form" name="filter-form">
+    <div id="element_id">
+      项目：<select class="Site_name" name="Site_name"></select>
+      组件：<select class="App_name" name="App_name"></select>
+    　　<a class="filter_btn uk-button" name="filter_btn">过滤</a>
+      </div>
+ </form>
+</body>
+<script  src="../../static/js/jquery.js"></script>
+<script  src="../../static/js/jquery.cxselect.js"></script>
+<script>
+    $('#element_id').cxSelect({
+      url: '/version/filter_app/',
+      selects: ['Site_name', 'App_name'],
+      jsonName: 'name',
+      jsonSub: 'value',
+      nodata: 'none'
+    });
+</script>
+</html>
+
+
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -65,7 +95,7 @@
                                         <div class="form-group has-success">
                                             <label for="project" class="col-md-2 control-label text-info" style="font-size: 14px;">project:</label>
                                             <div class="col-md-4">
-                                                项目：<select class="form-control Site_name" name="belong_project_id"></select>
+                                                项目：<select class="Site_name" name="Site_name"></select>
                                                 <span class="glyphicon glyphicon-certificate form-control-feedback"
                                                       aria-hidden="true"></span>
                                         </div>
@@ -73,32 +103,32 @@
                                         <div class="form-group has-success">
                                             <label for="module" class="col-md-2 control-label text-info" style="font-size: 14px;">module:</label>
                                             <div class="col-md-4">
-                                                模块：<select class="form-control App_name"  name="models_name"></select>
+                                                模块：<select class="App_name" name="App_name"></select>
                                                 <span class="glyphicon glyphicon-certificate form-control-feedback"
                                                       aria-hidden="true"></span>
                                             </div>
                                         </div>
                                     </div>
 
-{#                                    <div class="form-group has-success">#}
-{#                                        <label for="project" class="col-md-2 control-label text-info" style="font-size: 14px;">project:</label>#}
-{#                                        <div class="col-md-4">#}
-{#                                            <input type="text" class="form-control" id="project" placeholder="所属项目"#}
-{#                                                   name="belong_project" value="{{ info.belong_module.belong_project.project_name }}" readonly>#}
-{#                                            <span class="glyphicon glyphicon-certificate form-control-feedback"#}
-{#                                                  aria-hidden="true"></span>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{##}
-{#                                    <div class="form-group has-success">#}
-{#                                        <label for="module" class="col-md-2 control-label text-info" style="font-size: 14px;">module:</label>#}
-{#                                        <div class="col-md-4">#}
-{#                                            <input type="text" class="form-control" id="project" placeholder="所属模块"#}
-{#                                                   name="module" value="{{ info.belong_module.models_name }}" readonly>#}
-{#                                            <span class="glyphicon glyphicon-certificate form-control-feedback"#}
-{#                                                  aria-hidden="true"></span>#}
-{#                                        </div>#}
-{#                                    </div>#}
+                                    <div class="form-group has-success">
+                                        <label for="project" class="col-md-2 control-label text-info" style="font-size: 14px;">project:</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" id="project" placeholder="所属项目"
+                                                   name="belong_project" value="{{ info.belong_module.belong_project.project_name }}">
+                                            <span class="glyphicon glyphicon-certificate form-control-feedback"
+                                                  aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group has-success">
+                                        <label for="module" class="col-md-2 control-label text-info" style="font-size: 14px;">module:</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" id="project" placeholder="所属模块"
+                                                   name="module" value="{{ info.belong_module.models_name }}" >
+                                            <span class="glyphicon glyphicon-certificate form-control-feedback"
+                                                  aria-hidden="true"></span>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group has-feedback has-info">
                                         <label for="include" class="col-md-2 control-label text-info" style="font-size: 14px;">include:</label>
@@ -612,10 +642,8 @@
             var validate = $("#form_validate").serializeJSON();
             var setup = $("#form_setup").serializeJSON();
             var teardown = $("#form_teardown").serializeJSON();
-            var test_index={{ info.id }};
             var test = {
                 "test": {
-                    "test_index":test_index,
                     "name": caseInfo,
                     "project":belong_project_id,
                     "module":module_id,
@@ -634,14 +662,14 @@
 
                 }
             };
-{#            if (type === 'edit') {#}
-{#                url = '/api/edit_case/1/';#}
-{#            } else {#}
-{#                url = '/api/add_case/';#}
-{#            }#}
+            if (type === 'edit') {
+                url = '/api/edit_case/1/';
+            } else {
+                url = '/api/add_case/';
+            }
             $.ajax({
                 type: 'post',
-                url: '/api/edit_case/',
+                url: url,
                 data: JSON.stringify(test),
                 contentType: "application/json",
                 success: function (data) {
@@ -659,6 +687,7 @@
             });
         }
     </script>
+    <script  src="../../static/js/jquery.js"></script>
     <script  src="../../static/js/jquery.cxselect.js"></script>
     <script>
         $('#element_id').cxSelect({
@@ -673,3 +702,4 @@
 </body>
 
 </html>
+

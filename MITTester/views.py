@@ -3,7 +3,6 @@ import json
 from logic.common import *
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from httprunner.cli import *
 from logic.runner import *
 # Create your views here.
 
@@ -79,6 +78,7 @@ def edit_models(request):
         id=request.GET.get('id')
         obj=ModelsInfo.objects.filter(id=id).first()
         project_list = ProjectInfo.objects.all()
+        print(project_list)
         return render(request,'edit_models.html',{'obj':obj,'project_list': project_list})
     elif request.is_ajax():
         project_info = json.loads(request.body.decode('utf-8'))
@@ -101,6 +101,7 @@ def add_case(request):
     models_list=ModelsInfo.objects.all()
     if request.is_ajax():
         testcase_lists = json.loads(request.body.decode('utf-8'))
+        print('添加用例')
         print(testcase_lists)
         msg = case_info_logic(**testcase_lists)
         return HttpResponse(get_ajax_msg(msg, '用例添加成功'))
@@ -113,25 +114,67 @@ def edit_case(request):
 
     if request.method=='POST':
         id=request.POST.get('id')
-        print(id)
         test_info=CaseInfo.objects.get_case_by_id(id)
-        request=eval(test_info[0].request)
-        manage_info ={
-            'info': test_info[0],
-            'request': request['test']
-        }
-        return render_to_response('edit_case.html',manage_info)
-    elif request.is_ajax():
-        project_info = json.loads(request.body.decode('utf-8'))
-        msg = module_info_logic(type=False, **project_info)
-        return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
+        try:
+            request=eval(test_info[0].request)
+            manage_info ={
+                'info': test_info[0],
+                'request': request['test']
+            }
+            return render_to_response('edit_case.html',manage_info)
+        except:
+            testcase_lists = json.loads(request.body.decode('utf-8'))
+            print(testcase_lists)
+            msg = case_info_logic(**testcase_lists, type=False)
+            return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
 
+    # elif request.is_ajax():
+    #     project_info = json.loads(request.body.decode('utf-8'))
+    #     print(project_info)
+    #     msg = module_info_logic(type=False, **project_info)
+    #     return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
 
+def filterAppFromSite(request):
+    '''
+    修改case时，项目和列表下拉联动
+    :param request:
+    :return:
+    '''
+    # app_list1 = [{'name': 'project_1', 'value': [{'name': 'models_1'}, {'mame': 'models_2'}]},
+    #             {'name': 'project_2', 'value': [{'name': 'models_3'}, {'name': 'models_4'}]}]
+
+    model_list = []
+    # 获取所有项目名称
+    projects_names = ProjectInfo.objects.values('project_name').all()
+    # 遍历项目名称，插入字典，同时通过项目名查询所关联的模块
+    for project_name in projects_names:
+        projects = str(project_name['project_name'])
+        app_dict = {}
+        a = []
+        belong_project_id = ProjectInfo.objects.values('id').filter(project_name=projects).all()
+        for id in belong_project_id:
+            id = str(id['id'])
+            model = ModelsInfo.objects.values('models_name').filter(belong_project_id=id).all()
+            for models in model:
+                c = {}
+                models= str(models['models_name'])
+                c['name'] = models
+                a.append(c)
+            app_dict['name'] = str(project_name['project_name'])
+            app_dict['value'] = a
+            model_list.append(app_dict)
+    # print(model_list)
+    #result=json.dumps(app_list1, ensure_ascii=False)
+    result = json.dumps(model_list, ensure_ascii=False)
+    return HttpResponse(result)
 
 
 '''单个执行'''
 
+
 def run_test(request):
+
+
     if request.method == 'POST':
         mode = request.POST.get('mode')
         print(mode)
@@ -167,3 +210,11 @@ def mock_test(request):
         response['message'] = str(e)
     result = json.dumps(response, ensure_ascii=False)
     return HttpResponse(result)
+
+
+def test(request):
+    return render(request,'test.html')
+
+
+
+

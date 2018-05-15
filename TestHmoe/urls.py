@@ -37,5 +37,6 @@ urlpatterns = [
     url(r'^api/edit_case/', edit_case),
     url(r'^404/', page_not_found),
     url(r'^500/', page_error),
-    url(r'^test/',mock_test)
+    url(r'^test/',test),
+    url(r'^version/filter_app/',filterAppFromSite)
 ]

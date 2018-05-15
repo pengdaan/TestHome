@@ -35,6 +35,7 @@ def add_project_data(type, **kwargs):
 
 def add_module_data(type, **kwargs):
     module_opt = ModelsInfo.objects
+    print(kwargs)
     belong_project = kwargs.pop('belong_project_id')
     status= kwargs.pop('status')
     try:
@@ -78,7 +79,9 @@ def add_case_data(type, **kwargs):
             else:
                 return '用例或配置已存在，请重新编辑'
         else:
-            index = int(case_info.get('test_index'))
+            print(kwargs,'kkkk')
+            index = int(kwargs.get('test').get('test_index'))
+            #index = int(case_info.get('test').get('test_index'))
             if name != case_opt.get_case_by_id(index, type=False) \
                     and case_opt.get_case_name(name, module, project) > 0:
                 return '用例或配置已在该模块中存在，请重新命名'
@@ -126,5 +129,4 @@ def change_status(Model, **kwargs):
     obj.status = kwargs.pop('status')
     obj.save()
     return 'ok'
-
 

@@ -165,8 +165,12 @@ class TestCaseInfoManager(models.Manager):
         :param kwargs:
         :return:
         '''
+        print(kwargs)
         case_info = kwargs.get('test').pop('case_info')
-        obj = self.get(id=int(case_info.pop('test_index')))
+        try:
+            obj = self.get(id=int(kwargs.get('test').pop('test_index')))
+        except:
+            obj = self.get(id=int(case_info.pop('test_index')))
         obj.name = kwargs.get('test').get('name')
         obj.author = case_info.pop('author')
         obj.include = case_info.pop('include')
