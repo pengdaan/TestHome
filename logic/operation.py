@@ -68,6 +68,7 @@ def add_module_data(type, **kwargs):
 def add_case_data(type, **kwargs):
     case_info = kwargs.get('test').get('case_info')
     case_opt = CaseInfo.objects
+    module_opt=ModelsInfo.objects
     name = kwargs.get('test').get('name')
     module = case_info.get('module')
     project = case_info.get('project')
@@ -79,7 +80,6 @@ def add_case_data(type, **kwargs):
             else:
                 return '用例或配置已存在，请重新编辑'
         else:
-            print(kwargs,'kkkk')
             index = int(kwargs.get('test').get('test_index'))
             #index = int(case_info.get('test').get('test_index'))
             if name != case_opt.get_case_by_id(index, type=False) \
@@ -87,6 +87,10 @@ def add_case_data(type, **kwargs):
                 return '用例或配置已在该模块中存在，请重新命名'
             else:
                 case_opt.update_case(**kwargs)
+                models_name = case_info.pop('models_name')
+                models_id=module_opt.values('id').filter(models_name=models_name).filter(status_id='1').first()
+                models_id=models_id.pop('id')
+                case_opt.filter(id=index).update(belong_module_id=models_id)
 
     except DataError:
         return '字段长度超长，请重新编辑'

@@ -124,7 +124,6 @@ def edit_case(request):
             return render_to_response('edit_case.html',manage_info)
         except:
             testcase_lists = json.loads(request.body.decode('utf-8'))
-            print(testcase_lists)
             msg = case_info_logic(**testcase_lists, type=False)
             return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
 

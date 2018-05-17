@@ -165,7 +165,6 @@ class TestCaseInfoManager(models.Manager):
         :param kwargs:
         :return:
         '''
-        print(kwargs)
         case_info = kwargs.get('test').pop('case_info')
         try:
             obj = self.get(id=int(kwargs.get('test').pop('test_index')))
@@ -175,7 +174,9 @@ class TestCaseInfoManager(models.Manager):
         obj.author = case_info.pop('author')
         obj.include = case_info.pop('include')
         obj.request = kwargs
+        obj.belong_project=case_info.pop('belong_project_id')
         obj.save()
+
 
     def insert_config(self, belong_module, **kwargs):
         '''
