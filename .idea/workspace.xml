@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec11cf7-8976-44b3-9a8e-8ecabc36462f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/TestHmoe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TestHmoe.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MITTester/templates/add_models.html" beforeDir="false" afterPath="$PROJECT_DIR$/MITTester/templates/add_models.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MITTester/templates/edit_models.html" beforeDir="false" afterPath="$PROJECT_DIR$/MITTester/templates/edit_models.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MITTester/templates/edit_project.html" beforeDir="false" afterPath="$PROJECT_DIR$/MITTester/templates/edit_project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MITTester/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/MITTester/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,7 +44,7 @@
       <file leaf-file-name="edit_models.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_models.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
+            <state relative-caret-position="2596">
               <caret line="141" column="32" selection-start-line="141" selection-start-column="32" selection-end-line="142" selection-end-column="48" />
             </state>
           </provider>
@@ -58,8 +53,8 @@
       <file leaf-file-name="add_models.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MITTester/templates/add_models.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="125" column="57" lean-forward="true" selection-start-line="125" selection-start-column="32" selection-end-line="125" selection-end-column="57" />
+            <state relative-caret-position="97">
+              <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -67,8 +62,20 @@
       <file leaf-file-name="edit_project.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_project.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="158" column="57" selection-start-line="158" selection-start-column="57" selection-end-line="158" selection-end-column="57" />
+            <state relative-caret-position="185">
+              <caret line="152" column="44" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="3538" column="1" selection-start-line="3538" selection-start-column="1" selection-end-line="3538" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -85,7 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>status</find>
       <find>config_ajax</find>
       <find>project</find>
       <find>form_message</find>
@@ -115,6 +121,7 @@
       <find>obj</find>
       <find>update</find>
       <find>模块</find>
+      <find />
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,7 +167,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="12" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
@@ -343,9 +350,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32914045" />
       <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.40343347" weight="0.32716927" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49570817" visible="true" weight="0.38691324" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49570817" visible="true" weight="0.38691324" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4985694" weight="0.27169275" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25107297" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25107297" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -429,16 +436,6 @@
       </provider>
     </entry>
     <entry file="file://F:/Python/Python35/Lib/site-packages/django/templatetags/static.py" />
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="4" column="117503" selection-start-line="4" selection-start-column="117503" selection-end-line="4" selection-end-column="117503" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MITTester/templates/404.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -653,22 +650,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_models.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="2596">
           <caret line="141" column="32" selection-start-line="141" selection-start-column="32" selection-end-line="142" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="3538" column="1" selection-start-line="3538" selection-start-column="1" selection-end-line="3538" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MITTester/templates/add_models.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="125" column="57" lean-forward="true" selection-start-line="125" selection-start-column="32" selection-end-line="125" selection-end-column="57" />
+        <state relative-caret-position="97">
+          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="4" column="117525" selection-start-line="4" selection-start-column="117525" selection-end-line="4" selection-end-column="117525" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_project.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="158" column="57" selection-start-line="158" selection-start-column="57" selection-end-line="158" selection-end-column="57" />
+        <state relative-caret-position="185">
+          <caret line="152" column="44" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
