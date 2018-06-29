@@ -37,7 +37,7 @@ def Editproject(request):
     elif request.is_ajax():
         project_info = json.loads(request.body.decode('utf-8'))
         msg = project_info_logic(type=False, **project_info)
-        return HttpResponse(get_ajax_msg(msg, '项目信息更新成功'))
+        return HttpResponse(get_ajax_msg(msg, 'true'))
 
 
 # 添加项目
@@ -69,9 +69,9 @@ def add_models(request):
         models_info = json.loads(request.body.decode('utf-8'))
         print(models_info)
         msg=module_info_logic(**models_info)
-        return HttpResponse(get_ajax_msg(msg, '模块添加成功'))
+        return HttpResponse(get_ajax_msg(msg, 'true'))
 
-# 编辑项目
+# 编辑模块
 def edit_models(request):
 
     if request.method=='GET':
@@ -83,7 +83,7 @@ def edit_models(request):
     elif request.is_ajax():
         project_info = json.loads(request.body.decode('utf-8'))
         msg = module_info_logic(type=False, **project_info)
-        return HttpResponse(get_ajax_msg(msg, '模块信息更新成功'))
+        return HttpResponse(get_ajax_msg(msg, 'true'))
 
 
 # 用例列表

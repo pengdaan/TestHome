@@ -22,7 +22,7 @@
                 <ol class="breadcrumb">
                     <li> <a href="#">TestHome </a>
                     </li>
-                    <li> <strong>新增模块</strong>
+                    <li> <strong>编辑模块</strong>
                     </li>
                 </ol>
             </div>
@@ -135,11 +135,16 @@
                     data: JSON.stringify(models),
                     contentType: "application/json",
                     success: function (data) {
-                            if (data.code=='ok') {
-                                window.location.reload();
+                        console.log(data);
+                            if (data=='true') {
+                                data='模块信息更新成功';
+                                alert(data);
+                                location=document.referrer;
+                                window.location;
                             } else {
-                                alert(data)
-                            }                    }
+                                alert(data);
+                            }
+                    }
                 });
             }
 

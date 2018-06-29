@@ -149,10 +149,14 @@
                     data: JSON.stringify(peojects),
                     contentType: "application/json",
                     success: function (data) {
-                            if (data.code === 'ok') {
-                                window.location.reload();
+                            if (data === 'true') {
+                                data='项目信息添加成功';
+                                alert(data);
+                                location=document.referrer;
+                                window.location;
                             } else {
-                                alert(data)
+                                alert(data);
+                                window.location.reload();
                             }
                     }
                 });

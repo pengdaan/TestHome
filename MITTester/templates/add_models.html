@@ -120,10 +120,14 @@
                     data: JSON.stringify(peojects),
                     contentType: "application/json",
                     success: function (data) {
-                            if (data.code=='ok') {
+                            if (data=='true') {
+                                data='模块信息添加成功';
+                                alert(data);
                                 window.location.reload();
+
                             } else {
-                                alert(data)
+                                alert(data);
+                                window.location.reload();
                             }
                     }
                 });
