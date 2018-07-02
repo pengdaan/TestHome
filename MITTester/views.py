@@ -101,8 +101,7 @@ def add_case(request):
     models_list=ModelsInfo.objects.all()
     if request.is_ajax():
         testcase_lists = json.loads(request.body.decode('utf-8'))
-        print('添加用例')
-        print(testcase_lists)
+        print('添加用例',testcase_lists)
         msg = case_info_logic(**testcase_lists)
         return HttpResponse(get_ajax_msg(msg, '用例添加成功'))
     elif request.method == 'GET':
@@ -121,17 +120,46 @@ def edit_case(request):
                 'info': test_info[0],
                 'request': request['test']
             }
+            print(manage_info)
             return render_to_response('edit_case.html',manage_info)
         except:
             testcase_lists = json.loads(request.body.decode('utf-8'))
             msg = case_info_logic(**testcase_lists, type=False)
             return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
 
-    # elif request.is_ajax():
-    #     project_info = json.loads(request.body.decode('utf-8'))
-    #     print(project_info)
-    #     msg = module_info_logic(type=False, **project_info)
-    #     return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
+
+# 新增配置
+def add_config(request):
+    '''
+    新增接口配置,配置后接口才能正常运行
+    :param request:
+    :return:
+    '''
+    if request.method == 'GET':
+        return render(request, 'add_config.html')
+    elif request.is_ajax():
+        config_info = json.loads(request.body.decode('utf-8'))
+        print(config_info)
+        return HttpResponse('test')
+    # if request.method=='POST':
+    #     id=request.POST.get('id')
+    #     test_info=CaseInfo.objects.get_case_by_id(id)
+    #     try:
+    #         request=eval(test_info[0].request)
+    #         manage_info ={
+    #             'info': test_info[0],
+    #             'request': request['test']
+    #         }
+    #         print(manage_info)
+    #         return render_to_response('edit_case.html',manage_info)
+    #     except:
+    #         testconfig_lists = json.loads(request.body.decode('utf-8'))
+    #         msg = config_info_logic(**testconfig_lists)
+    #         return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
+
+
+
+# 下拉框联动
 
 def filterAppFromSite(request):
     '''

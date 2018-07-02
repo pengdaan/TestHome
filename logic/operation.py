@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.db import DataError
 
-from MITTester.models import *
+from MITTester.modules import *
 
 
 '''项目数据落地'''
@@ -47,10 +47,12 @@ def add_module_data(type, **kwargs):
             else:
                 return '该模块已在项目中存在，请重新编辑'
         else:
-            print('models_name:',kwargs.get('models_name'))
-            print('index:',module_opt.get_module_name('', type=False, id=kwargs.get('index')))
-            print('是否存在数目:',module_opt.filter(belong_project_id__exact=belong_project).filter(models_name__exact=kwargs.get('models_name')).count() )
-            if kwargs.get('models_name') == module_opt.get_module_name('', type=False, id=kwargs.get('index')) \
+            # print('models_name:',kwargs.get('models_name'))
+            # print('index:',module_opt.get_module_name('', type=False, id=kwargs.get('index')))
+            # print('是否存在数目:',module_opt.filter(belong_project_id__exact=belong_project).filter(models_name__exact=kwargs.get('models_name')).count() )
+            # print('log',module_opt.filter(belong_project_id__exact=belong_project) \
+            #                 .filter(models_name__exact=kwargs.get('models_name')).count())
+            if kwargs.get('models_name') != module_opt.get_module_name('', type=False, id=kwargs.get('index')) \
                     and module_opt.filter(belong_project_id__exact=belong_project) \
                             .filter(models_name__exact=kwargs.get('models_name')).count() > 0:
                 return '该模块已存在，请重新命名'
@@ -70,20 +72,28 @@ def add_case_data(type, **kwargs):
     case_opt = CaseInfo.objects
     module_opt=ModelsInfo.objects
     name = kwargs.get('test').get('name')
-    module = case_info.get('module')
-    project = case_info.get('project')
+    module = case_info.get('models_name')
+    project = case_info.get('belong_project_id')
     try:
         if type:
-            if case_opt.get_case_name(name, module, project) < 1:
+            print('来到这里,这里新增')
+            models_id =module_opt.values('id').get(models_name=module)
+            print(models_id)
+            model_id = str(models_id.get('id'))
+            if case_opt.get_case_name(name,model_id, project) < 1:
                 # belong_module = ModelsInfo.objects.get_module_name(module, type=False, project=project)
-                case_opt.insert_case(**kwargs)
+                case_opt.insert_case(model_id,**kwargs)
             else:
                 return '用例或配置已存在，请重新编辑'
         else:
+            print('来到这里,这里修改判断')
             index = int(kwargs.get('test').get('test_index'))
+            models_id = module_opt.values('id').get(models_name=module)
+            print(models_id)
+            model_id = str(models_id.get('id'))
             #index = int(case_info.get('test').get('test_index'))
             if name != case_opt.get_case_by_id(index, type=False) \
-                    and case_opt.get_case_name(name, module, project) > 0:
+                    and case_opt.get_case_name(name, model_id, project) > 0:
                 return '用例或配置已在该模块中存在，请重新命名'
             else:
                 case_opt.update_case(**kwargs)

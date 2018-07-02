@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec11cf7-8976-44b3-9a8e-8ecabc36462f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/MITTester/templates/add_config.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MITTester/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/MITTester/modules.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MITTester/templates/add_case.html" beforeDir="false" afterPath="$PROJECT_DIR$/MITTester/templates/add_case.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MITTester/templates/edit_project.html" beforeDir="false" afterPath="$PROJECT_DIR$/MITTester/templates/edit_project.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MITTester/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/MITTester/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MITTester/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/MITTester/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MITTester/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/MITTester/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestHmoe/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestHmoe/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/httprunner/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/httprunner/cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/httprunner/runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/httprunner/runner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/DBlogic.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/DBlogic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/operation.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/operation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/runner.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,13 +31,36 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="add_case.html" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/MITTester/templates/add_case.html">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="307">
+                    <caret line="403" column="28" lean-forward="true" selection-start-line="403" selection-start-column="28" selection-end-line="403" selection-end-column="28" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestHmoe/urls.py">
+      <file leaf-file-name="add_config.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MITTester/templates/add_config.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+            <state relative-caret-position="-1753">
+              <caret line="167" column="48" lean-forward="true" selection-start-line="167" selection-start-column="48" selection-end-line="167" selection-end-column="48" />
+              <folding>
+                <element signature="n#style#0;n#label#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -32,8 +68,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MITTester/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+            <state relative-caret-position="94">
+              <caret line="142" column="33" selection-start-line="142" selection-start-column="33" selection-end-line="142" selection-end-column="33" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -44,38 +80,17 @@
       <file leaf-file-name="edit_models.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_models.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2596">
-              <caret line="141" column="32" selection-start-line="141" selection-start-column="32" selection-end-line="142" selection-end-column="48" />
+            <state relative-caret-position="436">
+              <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_models.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MITTester/templates/add_models.html">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestHmoe/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit_project.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_project.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="152" column="44" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="3538" column="1" selection-start-line="3538" selection-start-column="1" selection-end-line="3538" selection-end-column="1" />
+            <state relative-caret-position="208">
+              <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -92,28 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>config_ajax</find>
-      <find>project</find>
-      <find>form_message</find>
-      <find>module</find>
-      <find>belong_module</find>
-      <find>belong_project_id</find>
-      <find>project_name</find>
-      <find>belong</find>
-      <find>key_value_dict</find>
-      <find>get_module_name</find>
-      <find>项目</find>
-      <find>form_setup</find>
-      <find>post</find>
-      <find>belong_project</find>
-      <find>http</find>
-      <find>getQueryVariable</find>
-      <find>select</find>
-      <find>element_id</find>
-      <find>author</find>
-      <find>case_name</find>
-      <find>row</find>
-      <find>form-horizontal</find>
       <find>info</find>
       <find>form_request_data</find>
       <find>case_info</find>
@@ -122,6 +115,28 @@
       <find>update</find>
       <find>模块</find>
       <find />
+      <find>project</find>
+      <find>#element_id</find>
+      <find>返回首页</find>
+      <find>jquery.cxselect.js</find>
+      <find>项目</find>
+      <find>element_id</find>
+      <find>case</find>
+      <find>value</find>
+      <find>cxselect</find>
+      <find>add</find>
+      <find>belong_project</find>
+      <find>print</find>
+      <find>run</find>
+      <find>base</find>
+      <find>用例</find>
+      <find>ok</find>
+      <find>variables_1</find>
+      <find>case_name</find>
+      <find>setup</find>
+      <find>tab-test</find>
+      <find>extra</find>
+      <find>ModuleInfo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -140,21 +155,25 @@
         <option value="$PROJECT_DIR$/MITTester/templates/add_project.html" />
         <option value="$PROJECT_DIR$/TestHmoe/settings.py" />
         <option value="$PROJECT_DIR$/MITTester/models.py" />
-        <option value="$PROJECT_DIR$/MITTester/templates/add_case.html" />
-        <option value="$PROJECT_DIR$/MITTester/templates/index.html" />
-        <option value="$PROJECT_DIR$/logic/runner.py" />
         <option value="$PROJECT_DIR$/MITTester/templates/case_list.html" />
         <option value="$PROJECT_DIR$/MITTester/templates/models.html" />
-        <option value="$PROJECT_DIR$/MITTester/templates/test.html" />
-        <option value="$PROJECT_DIR$/TestHmoe/urls.py" />
-        <option value="$PROJECT_DIR$/MITTester/templates/edit_case.html" />
-        <option value="$PROJECT_DIR$/logic/common.py" />
-        <option value="$PROJECT_DIR$/logic/DBlogic.py" />
-        <option value="$PROJECT_DIR$/logic/operation.py" />
         <option value="$PROJECT_DIR$/MITTester/templates/edit_models.html" />
         <option value="$PROJECT_DIR$/MITTester/templates/add_models.html" />
-        <option value="$PROJECT_DIR$/MITTester/views.py" />
+        <option value="$PROJECT_DIR$/logic/DBlogic.py" />
+        <option value="$PROJECT_DIR$/logic/operation.py" />
+        <option value="$PROJECT_DIR$/MITTester/templates/edit_case.html" />
+        <option value="$PROJECT_DIR$/logic/runner.py" />
+        <option value="$PROJECT_DIR$/httprunner/cli.py" />
+        <option value="$PROJECT_DIR$/httprunner/task.py" />
+        <option value="$PROJECT_DIR$/httprunner/runner.py" />
+        <option value="$PROJECT_DIR$/MITTester/templates/add_case.html" />
+        <option value="$PROJECT_DIR$/MITTester/templates/test.html" />
+        <option value="$PROJECT_DIR$/logic/common.py" />
+        <option value="$PROJECT_DIR$/MITTester/templates/index.html" />
+        <option value="$PROJECT_DIR$/TestHmoe/urls.py" />
         <option value="$PROJECT_DIR$/MITTester/templates/edit_project.html" />
+        <option value="$PROJECT_DIR$/MITTester/templates/add_config.html" />
+        <option value="$PROJECT_DIR$/MITTester/views.py" />
       </list>
     </option>
   </component>
@@ -167,10 +186,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="12" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="291" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="width" value="863" />
     <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -179,7 +198,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,6 +225,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -342,23 +361,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="12" y="23" width="1440" height="800" extended-state="0" />
+    <frame x="291" y="23" width="863" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49785408" weight="0.32859176" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50429183" side_tool="true" weight="0.38691324" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32914045" />
-      <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.40343347" weight="0.32716927" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49570817" visible="true" weight="0.38691324" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32859176" />
+      <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.40343347" weight="0.32716927" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4985694" weight="0.27169275" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25107297" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.33008525" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -415,38 +434,11 @@
           <line>66</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/MITTester/views.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="10" />
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/animate.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-line="13" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/Python/Python35/Lib/site-packages/django/templatetags/static.py" />
-    <entry file="file://$PROJECT_DIR$/MITTester/templates/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js" />
-    <entry file="file://F:/Python/Python35/Lib/site-packages/django/db/models/base.py" />
-    <entry file="file://F:/Python/Python35/Lib/wsgiref/simple_server.py" />
-    <entry file="file://F:/Python/Python35/Lib/site-packages/django/http/response.py" />
     <entry file="file://$PROJECT_DIR$/static/js/commons.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -488,20 +480,7 @@
     </entry>
     <entry file="file://F:/Python/Python35/Lib/site-packages/django/db/models/sql/query.py" />
     <entry file="file://F:/Python/Python35/Lib/site-packages/django/db/models/manager.py" />
-    <entry file="file://$PROJECT_DIR$/httprunner/cli.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/httprunner/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://F:/Python/Python35/Lib/site-packages/django/shortcuts.py" />
-    <entry file="file://$PROJECT_DIR$/logic/runner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MITTester/templates/report_template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
@@ -546,28 +525,7 @@
     <entry file="file://F:/Python/Python35/Lib/site-packages/django/core/handlers/base.py" />
     <entry file="file://F:/Python/Python35/Lib/site-packages/django/db/models/query.py" />
     <entry file="file://F:/Python/Python35/Lib/site-packages/django/db/models/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/MITTester/templates/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15158">
-          <caret line="689" selection-start-line="689" selection-end-line="699" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/Python/Python35/Lib/site-packages/django/core/handlers/exception.py" />
-    <entry file="file://$PROJECT_DIR$/logic/DBlogic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="49" column="60" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logic/operation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Python/3.6/lib/python/site-packages/django/db/backends/mysql/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -579,20 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MITTester/templates/add_case.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="79" column="60" selection-start-line="79" selection-start-column="60" selection-end-line="79" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logic/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -610,62 +554,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_case.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-67">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MITTester/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="144" column="33" selection-start-line="144" selection-start-column="33" selection-end-line="144" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MITTester/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestHmoe/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MITTester/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_models.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2596">
-          <caret line="141" column="32" selection-start-line="141" selection-start-column="32" selection-end-line="142" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
+        <state relative-caret-position="77836">
           <caret line="3538" column="1" selection-start-line="3538" selection-start-column="1" selection-end-line="3538" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MITTester/templates/add_models.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="28" />
+        <state relative-caret-position="638">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -676,12 +575,209 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Python/3.6/lib/python/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="830" column="8" selection-start-line="830" selection-start-column="8" selection-end-line="830" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Python/3.6/lib/python/site-packages/django/http/response.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="281" column="8" selection-start-line="281" selection-start-column="8" selection-end-line="281" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/httprunner/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/lib/python3.6/unittest/runner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="127" column="8" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/lib/python3.6/unittest/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/httprunner/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/httprunner/cli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/httprunner/task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4180">
+          <caret line="194" column="17" selection-start-line="194" selection-start-column="17" selection-end-line="194" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/httprunner/runner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1298">
+          <caret line="63" column="55" selection-start-line="63" selection-start-column="55" selection-end-line="63" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logic/DBlogic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4532">
+          <caret line="206" column="8" selection-start-line="206" selection-start-column="8" selection-end-line="206" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logic/runner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding>
+            <element signature="e#171#232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_case.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="41" selection-start-line="41" selection-end-line="532" selection-end-column="10" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logic/operation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="112" column="4" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logic/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="193" column="20" lean-forward="true" selection-start-line="193" selection-start-column="20" selection-end-line="193" selection-end-column="20" />
+          <folding>
+            <element signature="e#170#199#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MITTester/templates/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4150">
+          <caret line="394" lean-forward="true" selection-start-line="394" selection-end-line="394" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#9999#10005#1#HTML" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10648#10654#1#HTML" expanded="true" />
+            <element signature="n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#16376#16382#0#HTML" expanded="true" />
+            <element signature="e#16399#16406#0#HTML" expanded="true" />
+            <element signature="e#16407#16413#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MITTester/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="94" column="84" lean-forward="true" selection-start-line="94" selection-start-column="84" selection-end-line="94" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MITTester/modules.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="39" column="16" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_project.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="152" column="44" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
+        <state relative-caret-position="-307">
+          <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MITTester/templates/edit_models.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestHmoe/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MITTester/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="142" column="33" selection-start-line="142" selection-start-column="33" selection-end-line="142" selection-end-column="33" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MITTester/templates/add_case.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="403" column="28" lean-forward="true" selection-start-line="403" selection-start-column="28" selection-end-line="403" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MITTester/templates/add_config.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1753">
+          <caret line="167" column="48" lean-forward="true" selection-start-line="167" selection-start-column="48" selection-end-line="167" selection-end-column="48" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

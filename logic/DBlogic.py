@@ -148,7 +148,7 @@ class ModuleInfoManager(models.Manager):
 
 class TestCaseInfoManager(models.Manager):
 
-    def insert_case(self,**kwargs):
+    def insert_case(self,modules,**kwargs):
         '''
         处理前端返回的json，提取字段，插入sql
         :param belong_module:
@@ -156,8 +156,9 @@ class TestCaseInfoManager(models.Manager):
         :return:
         '''
         case_info = kwargs.get('test').pop('case_info')
-        self.create(name=kwargs.get('test').get('name'), belong_project=case_info.pop('project'),
-                    belong_module_id=case_info.pop('module'),author=case_info.pop('author'), include=case_info.pop('include'), request=kwargs)
+        print('插入数据库',kwargs)
+        self.create(name=kwargs.get('test').get('name'), belong_project=case_info.pop('belong_project_id'),
+                    belong_module_id=modules,author=case_info.pop('author'), include=case_info.pop('include'), request=kwargs)
 
     def update_case(self, **kwargs):
         '''
@@ -211,7 +212,7 @@ class TestCaseInfoManager(models.Manager):
         :param belong_project:
         :return:
         '''
-        print(name, module_name, belong_project)
+        print('通过模块名和项目名统计单个项目的case数量',name, module_name, belong_project)
         return self.filter(belong_module_id=module_name).filter(name__exact=name).filter(
             belong_project__exact=belong_project).count()
 

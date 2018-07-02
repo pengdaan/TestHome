@@ -5,7 +5,7 @@
 # @File          : common.py
 # @Software      : PyCharm
 from logic.operation import *
-
+from MITTester.modules import *
 
 '''项目信息逻辑判断'''
 
@@ -136,8 +136,63 @@ def case_info_logic(type=True, **kwargs):
     if teardown:
         test.setdefault('teardown', key_value_list(**teardown))
     kwargs.setdefault('test', test)
-    print('case_info_logic_data:',kwargs)
+    print('后端对数据进行判断:',kwargs)
     return add_case_data(type, **kwargs)
+
+'''动态加载模块'''
+
+
+def load_modules(**kwargs):
+    belong_project = kwargs.get('name').get('project')
+    module_info = list(ModelsInfo.objects.get_module_info(belong_project))
+    string = ''
+    for value in module_info:
+        string = string + value + 'replaceFlag'
+
+    return string[:len(string) - 11]
+
+
+'''配置信息逻辑及落地'''
+
+
+def config_info_logic(type=True, **kwargs):
+    config = kwargs.pop('config')
+    '''
+        动态展示模块
+    '''
+    if 'request' not in config.keys():
+        return load_modules(**config)
+    else:
+        if config.get('name').get('config_name') is '':
+            return '配置名称不可为空'
+        if config.get('name').get('project') is None or config.get('name').get('project') is '':
+            return '请先添加项目'
+        if config.get('name').get('config_module') is None or config.get('name').get('config_module') is '':
+            return '请先添加模块'
+        if config.get('name').get('config_author') is '':
+            return '创建者不能为空'
+
+        name = config.pop('name')
+        config.setdefault('name', name.pop('config_name'))
+
+        config.setdefault('config_info', name)
+
+        request_data = config.get('request').pop('request_data')
+        data_type = config.get('request').pop('type')
+        if request_data and data_type:
+            config.get('request').setdefault(data_type, key_value_dict(**request_data))
+
+        headers = config.get('request').pop('headers')
+        if headers:
+            config.get('request').setdefault('headers', key_value_dict(**headers))
+
+        variables = config.pop('variables')
+        if variables:
+            config.setdefault('variables', key_value_list(**variables))
+
+        kwargs.setdefault('config', config)
+        return add_config_data(type, **kwargs)
+
 
 
 

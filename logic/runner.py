@@ -5,7 +5,7 @@
 # @description   : 请自行添加描述
 # @File          : runner.py
 # @Software      : PyCharm
-from MITTester.models import CaseInfo,ModelsInfo,ProjectInfo
+from MITTester.modules import CaseInfo,ModelsInfo,ProjectInfo
 from httprunner.cli import *
 
 '''通过test id组装case 供其他方法调用'''
@@ -21,6 +21,7 @@ def run_by_single(id):
     # do not have include
     if include == '' or include is None:
         testcase_list.append(eval(request))
+        print('单个用例预运行的数据', testcase_list)
         return testcase_list
 
     else:
@@ -31,6 +32,7 @@ def run_by_single(id):
                                                        status=1).request
             testcase_list.append(eval(include_request))
         testcase_list.append(eval(request))
+        print('单个用例预运行的数据',testcase_list)
         return testcase_list
 
 

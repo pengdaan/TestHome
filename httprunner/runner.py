@@ -118,9 +118,10 @@ class Runner(object):
         @return True or raise exception during test
         """
         parsed_request = self.init_config(testcase_dict, level="testcase")
-
+        print(' parsed_request', parsed_request)
         try:
             url = parsed_request.pop('url')
+            print("需要测试的url",url)
             method = parsed_request.pop('method')
             group_name = parsed_request.pop("group", None)
         except KeyError:

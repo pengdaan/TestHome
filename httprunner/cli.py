@@ -11,7 +11,7 @@ from httprunner.utils import (create_scaffold, load_dot_env_file, print_output)
 
 def main_ate(testset_paths, html_report_name=None):
     logger.setup_logger('INFO')
-
+    print('开始调用框架')
     result = HttpRunner(testset_paths, failfast=False).run(html_report_name=html_report_name)
     return result
 

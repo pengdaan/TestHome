@@ -38,5 +38,7 @@ urlpatterns = [
     url(r'^404/', page_not_found),
     url(r'^500/', page_error),
     url(r'^test/',test),
-    url(r'^version/filter_app/',filterAppFromSite)
+    url(r'^version/filter_app/',filterAppFromSite),
+    url(r'^add_config.html',add_config),
+    url(r'api/add_config/',add_config)
 ]

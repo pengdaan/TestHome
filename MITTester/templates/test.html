@@ -1,34 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form class="uk-form" name="filter-form">
-    <div id="element_id">
-      项目：<select class="Site_name" name="Site_name"></select>
-      组件：<select class="App_name" name="App_name"></select>
-    　　<a class="filter_btn uk-button" name="filter_btn">过滤</a>
-      </div>
- </form>
-</body>
-<script  src="../../static/js/jquery.js"></script>
-<script  src="../../static/js/jquery.cxselect.js"></script>
-<script>
-    $('#element_id').cxSelect({
-      url: '/version/filter_app/',
-      selects: ['Site_name', 'App_name'],
-      jsonName: 'name',
-      jsonSub: 'value',
-      nodata: 'none'
-    });
-</script>
-</html>
-
-
-
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -37,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title> - 编辑用例</title>
+    <title> - 添加用例</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link rel="shortcut icon" href="favicon.ico">
@@ -52,7 +22,7 @@
 <body class="gray-bg">
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-sm-4">
-            <h2>编辑用例</h2>
+            <h2>添加用例</h2>
             <ol class="breadcrumb">
                 <li>
                     <a href="index.html">主页</a>
@@ -74,59 +44,43 @@
             <div class="col-sm-12">
                 <div class="">
                     <ul class="nav nav-tabs" id="tab-test">
-                        <li><a href="#messages_1">messages</a></li>
-                        <li><a href="#variables_1">variables</a></li>
-                        <li><a href="#request_1">request</a></li>
-                        <li><a href="#extract_1">extract/validate</a></li>
-                    </ul>
+    <li><a href="#messages_1">messages</a></li>
+    <li><a href="#variables_1">variables</a></li>
+    <li><a href="#request_1">request</a></li>
+    <li><a href="#extract_1">extract/validate</a></li>
+</ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="messages_1">
-                            <div class="am-tab-panel" id="tab1">
+  <div class="tab-pane active" id="messages_1">
+      <div class="am-tab-panel" id="tab1">
                                 <form class="form-horizontal" id="form_message">
                                     <div class="form-group has-feedback has-info">
                                         <label for="case_name" class="col-md-2 control-label text-info" style="font-size: 14px;">case_name:</label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" id="case_name" placeholder="用例名称" name="case_name" value="{{ info.name }}">
+                                            <input type="text" class="form-control" id="case_name" placeholder="用例名称" name="case_name" value="">
                                             <span class="glyphicon glyphicon-certificate form-control-feedback"
                                                   aria-hidden="true"></span>
-                                        </div>
-                                    </div>
-                                    <div id="element_id">
-                                        <div class="form-group has-success">
-                                            <label for="project" class="col-md-2 control-label text-info" style="font-size: 14px;">project:</label>
-                                            <div class="col-md-4">
-                                                项目：<select class="Site_name" name="Site_name"></select>
-                                                <span class="glyphicon glyphicon-certificate form-control-feedback"
-                                                      aria-hidden="true"></span>
-                                        </div>
-                                    </div>
-                                        <div class="form-group has-success">
-                                            <label for="module" class="col-md-2 control-label text-info" style="font-size: 14px;">module:</label>
-                                            <div class="col-md-4">
-                                                模块：<select class="App_name" name="App_name"></select>
-                                                <span class="glyphicon glyphicon-certificate form-control-feedback"
-                                                      aria-hidden="true"></span>
-                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group has-success">
                                         <label for="project" class="col-md-2 control-label text-info" style="font-size: 14px;">project:</label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" id="project" placeholder="所属项目"
-                                                   name="belong_project" value="{{ info.belong_module.belong_project.project_name }}">
-                                            <span class="glyphicon glyphicon-certificate form-control-feedback"
-                                                  aria-hidden="true"></span>
+                                            <select name="project" class="form-control" id="belong_project" onclick=info_ajax("#form_message")>
+                                                {% for foo in project_list %}
+                                                    <option value="{{ foo.project_name  }}">{{ foo.project_name }}</option>
+                                                {% endfor %}
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group has-success">
                                         <label for="module" class="col-md-2 control-label text-info" style="font-size: 14px;">module:</label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" id="project" placeholder="所属模块"
-                                                   name="module" value="{{ info.belong_module.models_name }}" >
-                                            <span class="glyphicon glyphicon-certificate form-control-feedback"
-                                                  aria-hidden="true"></span>
+                                            <select id="belong_module_id" name="module" class="form-control">
+                                            {% for row in models_list %}
+                                                <option value="{{ row.id }}">{{ row.models_name }}</option>
+                                            {% endfor %}
+                                            </select>
                                         </div>
                                     </div>
 
@@ -136,7 +90,7 @@
                                             <input type="text" class="form-control" id="dev_name"
                                                    placeholder="config>case_name1>casename2"
                                                    name="include"
-                                                   value="{{ info.include }}">
+                                                   value="">
                                             <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
                                         </div>
                                     </div>
@@ -145,15 +99,15 @@
                                         <label for="author" class="col-md-2 control-label text-info" style="font-size: 14px;">author:</label>
                                         <div class="col-md-4">
                                             <input type="text" class="form-control" id="dev_name" placeholder="创建者" name="author"
-                                                   value="{{ info.author}}">
+                                                   value="">
                                             <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
                                         </div>
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                        <div class="tab-pane" id="variables_1">
-                            <div class="am-tab-panel" id="tab2">
+  </div>
+  <div class="tab-pane" id="variables_1">
+      <div class="am-tab-panel" id="tab2">
                                 <button class="btn btn-info" value="添 加" onclick="addNewRow('variables')">add variables</button>
                                 <button class="btn btn-danger" value="删 除" onclick="removeRow('variables')">del variables</button>
                                 <button class="btn btn-info" value="添 加" onclick="addNewRow('setup')">add setup</button>
@@ -171,21 +125,6 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for foo in request.variables %}
-                                            <tr>
-                                                <td><input type="checkbox" name="variables"
-                                                           id="chkArr_{{ forloop.counter }}" style="width:55px"></td>
-                                                {% for key, value in foo.items %}
-                                                    <td><input type="text" name="cell1_keyvariables{{ forloop.parentloop.counter }}"
-                                                               id="nodename{{ forloop.parentloop.counter }}"
-                                                               value="{{ key }}" style="width:100%; border: none"></td>
-                                                    <td><input type="text"
-                                                               name="cell2_valuevariables{{ forloop.parentloop.counter }}"
-                                                               id="nodename{{ forloop.parentloop.counter }}" value="{{ value }}"
-                                                               style="width:100%; border: none"></td>
-                                                {% endfor %}
-                                            </tr>
-                                        {% endfor %}
                                         </tbody>
                                     </table>
                                 </form>
@@ -200,21 +139,6 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for foo in request.setup %}
-                                            <tr>
-                                                <td><input type="checkbox" name="setup" id="chkArr_{{ forloop.counter }}"
-                                               style="width:55px"></td>
-                                                {% for key, value in foo.items %}
-                                                    <td><input type="text" name="cell1_keysetup{{ forloop.parentloop.counter }}"
-                                                               id="nodename{{ forloop.parentloop.counter }}"
-                                                               value="{{ key }}" style="width:100%; border: none"></td>
-                                                    <td><input type="text"
-                                                               name="cell2_valuesetup{{ forloop.parentloop.counter }}"
-                                                               id="nodename{{ forloop.parentloop.counter }}" value="{{ value }}"
-                                                               style="width:100%; border: none"></td>
-                                                {% endfor %}
-                                            </tr>
-                                        {% endfor %}
                                         </tbody>
                                     </table>
                                 </form>
@@ -230,21 +154,6 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for foo in request.teardown %}
-                                            <tr>
-                                                <td><input type="checkbox" name="teardown" id="chkArr_{{ forloop.counter }}"
-                                                           style="width:55px"></td>
-                                                {% for key, value in foo.items %}
-                                                    <td><input type="text" name="cell1_keyteardown{{ forloop.parentloop.counter }}"
-                                                               id="nodename{{ forloop.parentloop.counter }}"
-                                                               value="{{ key }}" style="width:100%; border: none"></td>
-                                                    <td><input type="text"
-                                                               name="cell2_valueteardown{{ forloop.parentloop.counter }}"
-                                                               id="nodename{{ forloop.parentloop.counter }}" value="{{ value }}"
-                                                               style="width:100%; border: none"></td>
-                                                {% endfor %}
-                                            </tr>
-                                        {% endfor %}
                                         </tbody>
                                     </table>
                                 </form>
@@ -255,54 +164,24 @@
                                 <div class="form-inline">
                                     <div class="form-group has-success">
                                         <label for="url" style="font-size: 14px;">Api Url:</label>
-                                        <input type="text" class="form-control am-input-sm " placeholder="api url" name="url" id="url" value="{{ request.request.url }}">
+                                        <input type="text" class="form-control am-input-sm " placeholder="api url" name="url" id="url">
                                     </div>
 
                                     <div class="form-group has-warning">
                                         <label for="method" style="font-size: 14px;"><code>&nbsp;</code>Method:</label>
                                         <select class="form-control" name="method" id="method">
-                                            <option>{{ request.request.method }}</option>
-                                            {% if request.request.method == 'GET' %}
-                                                <option>POST</option>
-                                                <option>GET</option>
-                                                <option>PUT</option>
-                                                <option>DELETE</option>
-                                            {% elif request.request.method == 'POST' %}
-                                                <option>POST</option>
-                                                <option>GET</option>
-                                                <option>PUT</option>
-                                                <option>DELETE</option>
-                                            {% elif request.request.method == 'PUT' %}
-                                                <option>GET</option>
-                                                <option>POST</option>
-                                                <option>DELETE</option>
-                                            {% elif request.request.method == 'DELETE' %}
-                                                <option>GET</option>
-                                                <option>POST</option>
-                                                <option>DELETE</option>
-                                            {% endif %}
+                                            <option>POST</option>
+                                            <option>GET</option>
+                                            <option>PUT</option>
+                                            <option>DELETE</option>
                                         </select>
                                     </div>
                                     <div class="form-group has-warning ">
                                         <label for="DataType" style="font-size: 14px;"><code>&nbsp;</code>DataType:</label>
                                         <select class="form-control" name="DataType" id="DataType">
-                                            {% if 'data' in request.request.keys %}
-                                                <option selected>data</option>
-                                                <option>json</option>
-                                                <option>params</option>
-                                            {% elif 'json' in request.request.keys %}
-                                                <option selected>json</option>
-                                                <option>data</option>
-                                                <option>params</option>
-                                            {% elif 'params' in request.request.keys %}
-                                                <option selected>params</option>
-                                                <option>data</option>
-                                                <option>json</option>
-                                            {% else %}
-                                                <option>data</option>
-                                                <option>json</option>
-                                                <option>params</option>
-                                            {% endif %}
+                                            <option>data</option>
+                                            <option>json</option>
+                                            <option>params</option>
                                         </select>
                                     </div>
                                     <button class="btn btn-info" value="添 加" onclick="addNewRow('data')">add data</button>
@@ -320,50 +199,6 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% if 'data' in request.request.keys %}
-                                                {% for key, value in request.request.data.items %}
-                                                    <tr>
-                                                        <td><input type="checkbox" name="data" id="chkArr_{{ forloop.counter }}"
-                                                                   style="width:55px">
-                                                        </td>
-                                                        <td><input type="text" name="cell1_keydata{{ forloop.counter }}"
-                                                                   id="nodename{{ forloop.counter }}" value="{{ key }}"
-                                                                   style="width:100%; border: none"></td>
-                                                        <td><input type="text" name="cell2_valuedata{{ forloop.counter }}"
-                                                                   id="nodename{{ forloop.counter }}" value="{{ value }}"
-                                                                   style="width:100%; border: none"></td>
-                                                    </tr>
-                                                {% endfor %}
-                                            {% elif 'params' in request.request.keys %}
-                                                {% for key, value in request.request.params.items %}
-                                                    <tr>
-                                                        <td><input type="checkbox" name="data" id="chkArr_{{ forloop.counter }}"
-                                                                   style="width:55px">
-                                                        </td>
-                                                        <td><input type="text" name="cell1_keydata{{ forloop.counter }}"
-                                                                   id="nodename{{ forloop.counter }}" value="{{ key }}"
-                                                                   style="width:100%; border: none"></td>
-                                                        <td><input type="text" name="cell2_valuedata{{ forloop.counter }}"
-                                                                   id="nodename{{ forloop.counter }}" value="{{ value }}"
-                                                                   style="width:100%; border: none"></td>
-                                                    </tr>
-                                                {% endfor %}
-
-                                            {% elif 'json' in request.request.keys %}
-                                                {% for key, value in request.request.json.items %}
-                                                    <tr>
-                                                        <td><input type="checkbox" name="data" id="chkArr_{{ forloop.counter }}"
-                                                                   style="width:55px">
-                                                        </td>
-                                                        <td><input type="text" name="cell1_keydata{{ forloop.counter }}"
-                                                                   id="nodename{{ forloop.counter }}" value="{{ key }}"
-                                                                   style="width:100%; border: none"></td>
-                                                        <td><input type="text" name="cell2_valuedata{{ forloop.counter }}"
-                                                                   id="nodename{{ forloop.counter }}" value="{{ value }}"
-                                                                   style="width:100%; border: none"></td>
-                                                    </tr>
-                                                {% endfor %}
-                                            {% endif %}
                                             </tbody>
                                         </table>
                                     </form>
@@ -379,21 +214,6 @@
                                             </thead>
                                             <tbody>
                                             </tbody>
-                                            {% if 'headers' in request.request.keys %}
-                                                {% for key, value in request.request.headers.items %}
-                                                    <tr>
-                                                        <td><input type="checkbox" name="header" id="chkArr_{{ forloop.counter }}"
-                                                                   style="width:55px">
-                                                        </td>
-                                                        <td><input type="text" name="cell1_keyheader{{ forloop.counter }}"
-                                                                   id="nodename{{ forloop.counter }}" value="{{ key }}"
-                                                                   style="width:100%; border: none"></td>
-                                                        <td><input type="text" name="cell2_valueheader{{ forloop.counter }}"
-                                                                   id="nodename{{ forloop.counter }}" value="{{ value }}"
-                                                                   style="width:100%; border: none"></td>
-                                                    </tr>
-                                                {% endfor %}
-                                            {% endif %}
                                         </table>
                                     </form>
                                 </div>
@@ -416,20 +236,6 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for foo in request.extract %}
-                                            <tr>
-                                                <td><input type="checkbox" name="extract" id="chkArr_{{ forloop.counter }}"
-                                                           style="width:55px"></td>
-                                                {% for key, value in foo.items %}
-                                                    <td><input type="text" name="cell1_keyextract{{ forloop.parentloop.counter }}"
-                                                               id="nodename{{ forloop.parentloop.counter }}" value="{{ key }}"
-                                                               style="width:100%; border: none"></td>
-                                                    <td><input type="text" name="cell2_valueextract{{ forloop.parentloop.counter }}"
-                                                               id="nodename{{ forloop.parentloop.counter }}" value="{{ value }}"
-                                                               style="width:100%; border: none"></td>
-                                                {% endfor %}
-                                            </tr>
-                                        {% endfor %}
                                         </tbody>
                                     </table>
                                 </form>
@@ -445,112 +251,6 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for foo in request.validate %}
-                                            <tr>
-                                                <td><input type="checkbox" name="validate" id="chkArr_{{ forloop.counter }}"
-                                                           style="width:55px"></td>
-                                                <td><input type="text" name="cell1_keyvalidate{{ forloop.counter }}"
-                                                           id="nodename{{ forloop.counter }}" value="{{ foo.check }}"
-                                                           style="width:100%; border: none"></td>
-                                                <td><select name="cell_2comparatorvalidate{{ forloop.counter }}"
-                                                            class="form-control"
-                                                            style="height: 25px; font-size: 15px; padding-top: 0px; padding-left: 0px; border: none">
-                                                    {% ifequal foo.comparator 'equals' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>equals</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'contains' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>contains</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'startswith' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>startswith</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'endswith' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>endswith</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'regex_match' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>regex_match</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'type_match' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>type_match</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'contained_by' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>contained_by</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'less_than' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>less_than</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'less_than_or_equals' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>less_than_or_equals</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'greater_than' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>greater_than</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'greater_than_or_equals' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>greater_than_or_equals</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'not_equals' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>not_equals</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'string_equals' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>string_equals</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'length_equals' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>length_equals</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'length_greater_than' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>length_greater_than</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'length_greater_than_or_equals' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>length_greater_than_or_equals</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'length_less_than' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>length_less_than</option>
-                                                    {% endifequal %}
-                                                    {% ifequal foo.comparator 'length_less_than_or_equals' %}
-                                                        <option selected>{{ foo.comparator }}</option>
-                                                    {% else %}
-                                                        <option>length_less_than_or_equals</option>
-                                                    {% endifequal %}
-                                                </select></td>
-                                                <td><input type="text" name="cell3_valuevalidate{{ forloop.counter }}"
-                                                           id="nodename{{ forloop.counter }}" value="{{ foo.expected }}"
-                                                           style="width:100%; border: none"></td>
-                                            </tr>
-                                        {% endfor %}
                                         </tbody>
                                     </table>
                                 </form>
@@ -687,19 +387,8 @@
             });
         }
     </script>
-    <script  src="../../static/js/jquery.js"></script>
-    <script  src="../../static/js/jquery.cxselect.js"></script>
-    <script>
-        $('#element_id').cxSelect({
-            url: '/version/filter_app/',
-            selects: ['Site_name', 'App_name'],
-            jsonName: 'name',
-            jsonSub: 'value',
-            nodata: 'none'
-        });
-    </script>
+
 
 </body>
 
 </html>
-
