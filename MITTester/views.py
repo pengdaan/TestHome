@@ -140,7 +140,8 @@ def add_config(request):
     elif request.is_ajax():
         config_info = json.loads(request.body.decode('utf-8'))
         print(config_info)
-        return HttpResponse('test')
+        msg = config_info_logic(type=False, **config_info)
+        return HttpResponse((get_ajax_msg(msg, '配置更新成功')))
     # if request.method=='POST':
     #     id=request.POST.get('id')
     #     test_info=CaseInfo.objects.get_case_by_id(id)
