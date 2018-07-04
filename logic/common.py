@@ -160,38 +160,40 @@ def config_info_logic(type=True, **kwargs):
     '''
         动态展示模块
     '''
-    if 'request' not in config.keys():
-        return load_modules(**config)
-    else:
-        if config.get('name').get('config_name') is '':
-            return '配置名称不可为空'
-        if config.get('name').get('project') is None or config.get('name').get('project') is '':
-            return '请先添加项目'
-        if config.get('name').get('config_module') is None or config.get('name').get('config_module') is '':
-            return '请先添加模块'
-        if config.get('name').get('config_author') is '':
-            return '创建者不能为空'
+    # if 'request' not in config.keys():
+    #     return load_modules(**config)
+    # else:
+    if config.get('name').get('config_name') is '':
+        return '配置名称不可为空'
+    if config.get('name').get('project') is None or config.get('name').get('project') is '':
+        return '请先添加项目'
+    if config.get('name').get('config_module') is None or config.get('name').get('config_module') is '':
+        return '请先添加模块'
+    if config.get('name').get('config_author') is '':
+        return '创建者不能为空'
 
-        name = config.pop('name')
-        config.setdefault('name', name.pop('config_name'))
+    name = config.pop('name')
+    config.setdefault('name', name.pop('config_name'))
 
-        config.setdefault('config_info', name)
+    config.setdefault('config_info', name)
 
-        request_data = config.get('request').pop('request_data')
-        data_type = config.get('request').pop('type')
-        if request_data and data_type:
-            config.get('request').setdefault(data_type, key_value_dict(**request_data))
+    request_data = config.get('request').pop('request_data')
+    data_type = config.get('request').pop('type')
+    if request_data and data_type:
+        config.get('request').setdefault(data_type, key_value_dict(**request_data))
 
-        headers = config.get('request').pop('headers')
-        if headers:
-            config.get('request').setdefault('headers', key_value_dict(**headers))
+    headers = config.get('request').pop('headers')
+    if headers:
+        config.get('request').setdefault('headers', key_value_dict(**headers))
 
-        variables = config.pop('variables')
-        if variables:
-            config.setdefault('variables', key_value_list(**variables))
+    variables = config.pop('variables')
+    if variables:
+        config.setdefault('variables', key_value_list(**variables))
+        cc=config.setdefault('variables', key_value_list(**variables))
+        print(cc)
+    kwargs.setdefault('config', config)
 
-        kwargs.setdefault('config', config)
-        return add_config_data(type, **kwargs)
+    return add_config_data(type, **kwargs)
 
 
 

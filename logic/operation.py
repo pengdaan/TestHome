@@ -112,18 +112,23 @@ def add_case_data(type, **kwargs):
 
 def add_config_data(type, **kwargs):
     case_opt = CaseInfo.objects
+    module_opt = ModelsInfo.objects
     config_info = kwargs.get('config').get('config_info')
     name = kwargs.get('config').get('name')
     module = config_info.get('config_module')
     project = config_info.get('project')
     try:
         if type:
-            if case_opt.get_case_name(name, module, project) < 1:
+            models_id = module_opt.values('id').get(models_name=module)
+            print(models_id)
+            model_id = str(models_id.get('id'))
+            if case_opt.get_case_name(name, model_id, project) < 1:
                 belong_module = ModelsInfo.objects.get_module_name(module, type=False, project=project)
                 case_opt.insert_config(belong_module, **kwargs)
             else:
                 return '用例或配置已存在，请重新编辑'
         else:
+
             index = int(config_info.get('test_index'))
             if name != case_opt.get_case_by_id(index, type=False) \
                     and case_opt.get_case_name(name, module, project) > 0:

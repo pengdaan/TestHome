@@ -127,6 +127,13 @@ def edit_case(request):
             msg = case_info_logic(**testcase_lists, type=False)
             return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
 
+# 配置列表
+
+def config_list(request):
+
+    config_list=CaseInfo.objects.all().filter(type=2)
+    return render(request,'config_list.html',{'config_list':config_list})
+
 
 # 新增配置
 def add_config(request):
@@ -140,7 +147,7 @@ def add_config(request):
     elif request.is_ajax():
         config_info = json.loads(request.body.decode('utf-8'))
         print(config_info)
-        msg = config_info_logic(type=False, **config_info)
+        msg = config_info_logic(**config_info)
         return HttpResponse((get_ajax_msg(msg, '配置更新成功')))
     # if request.method=='POST':
     #     id=request.POST.get('id')

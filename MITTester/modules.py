@@ -69,6 +69,10 @@ class CaseInfo(BaseTable):
     status = models.IntegerField('有效/无效', default=1)
     objects = TestCaseInfoManager()
 
+
+
+
+
     def __str__(self):
         return self.name
 

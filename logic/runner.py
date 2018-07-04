@@ -21,7 +21,6 @@ def run_by_single(id):
     # do not have include
     if include == '' or include is None:
         testcase_list.append(eval(request))
-        print('单个用例预运行的数据', testcase_list)
         return testcase_list
 
     else:
