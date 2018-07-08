@@ -9,7 +9,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="/static/img/Mit_favicon.ico">
     <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="../../static/js/bootstrap.min.js">
@@ -73,7 +73,8 @@
                                             <td name="other_desc">{{ row.other_desc }}</td>
                                             <td >
                                                 <a class="fa fa-pencil icon edit-row" href="/edit_project.html?id={{ row.id }}"></a>
-                                                <a class="fa fa-street-view icon view-row"></a>
+                                                <a class="fa fa-trash-o fa-fw"></a>
+                                                <a class="fa fa-bug"></a>
                                             </td>
                                         </tr>
                                     {% endfor %}

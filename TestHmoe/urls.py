@@ -41,5 +41,8 @@ urlpatterns = [
     url(r'^version/filter_app/',filterAppFromSite),
     url(r'^add_config.html',add_config),
     url(r'api/add_config/',add_config),
-    url(r'^config_list.html',config_list)
+    url(r'^config_list.html',config_list),
+    url(r'^edit_config.html$', edit_config),
+    url(r'^api/edit_config/', edit_config),
+
 ]

@@ -88,8 +88,8 @@ def add_case_data(type, **kwargs):
         else:
             print('来到这里,这里修改判断')
             index = int(kwargs.get('test').get('test_index'))
+            print('index',index)
             models_id = module_opt.values('id').get(models_name=module)
-            print(models_id)
             model_id = str(models_id.get('id'))
             #index = int(case_info.get('test').get('test_index'))
             if name != case_opt.get_case_by_id(index, type=False) \
@@ -113,7 +113,10 @@ def add_case_data(type, **kwargs):
 def add_config_data(type, **kwargs):
     case_opt = CaseInfo.objects
     module_opt = ModelsInfo.objects
+    print('处理config_info',kwargs)
+    config = kwargs.get('config')
     config_info = kwargs.get('config').get('config_info')
+    print('config_info',config_info)
     name = kwargs.get('config').get('name')
     module = config_info.get('config_module')
     project = config_info.get('project')
@@ -128,10 +131,12 @@ def add_config_data(type, **kwargs):
             else:
                 return '用例或配置已存在，请重新编辑'
         else:
-
-            index = int(config_info.get('test_index'))
+            index = int(config.get('test_index'))
+            models_id = module_opt.values('id').get(models_name=module)
+            print(models_id)
+            model_id = str(models_id.get('id'))
             if name != case_opt.get_case_by_id(index, type=False) \
-                    and case_opt.get_case_name(name, module, project) > 0:
+                    and case_opt.get_case_name(name, model_id, project) > 0:
                 return '用例或配置已在该模块中存在，请重新命名'
             else:
                 case_opt.update_config(**kwargs)

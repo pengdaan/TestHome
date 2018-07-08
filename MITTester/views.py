@@ -4,6 +4,7 @@ from logic.common import *
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from logic.runner import *
+import pdb
 # Create your views here.
 
 
@@ -90,7 +91,7 @@ def edit_models(request):
 
 def case_list(request):
 
-    case_list=CaseInfo.objects.all()
+    case_list=CaseInfo.objects.filter(type=1).all()
     return render(request,'case_list.html',{'case_list':case_list})
 
 # 新增用例
@@ -112,18 +113,23 @@ def add_case(request):
 def edit_case(request):
 
     if request.method=='POST':
+        print(request.POST.get('config'))
         id=request.POST.get('id')
         test_info=CaseInfo.objects.get_case_by_id(id)
+        print(test_info.query)
         try:
             request=eval(test_info[0].request)
+            module_name =ModelsInfo.objects.get_module_by_id(test_info[0].belong_module_id,type=False)
             manage_info ={
                 'info': test_info[0],
+                'module_name':module_name,
                 'request': request['test']
             }
-            print(manage_info)
+            print('manage_info',manage_info)
             return render_to_response('edit_case.html',manage_info)
         except:
             testcase_lists = json.loads(request.body.decode('utf-8'))
+            print('传到后台',testcase_lists)
             msg = case_info_logic(**testcase_lists, type=False)
             return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
 
@@ -149,21 +155,31 @@ def add_config(request):
         print(config_info)
         msg = config_info_logic(**config_info)
         return HttpResponse((get_ajax_msg(msg, '配置更新成功')))
-    # if request.method=='POST':
-    #     id=request.POST.get('id')
-    #     test_info=CaseInfo.objects.get_case_by_id(id)
-    #     try:
-    #         request=eval(test_info[0].request)
-    #         manage_info ={
-    #             'info': test_info[0],
-    #             'request': request['test']
-    #         }
-    #         print(manage_info)
-    #         return render_to_response('edit_case.html',manage_info)
-    #     except:
-    #         testconfig_lists = json.loads(request.body.decode('utf-8'))
-    #         msg = config_info_logic(**testconfig_lists)
-    #         return HttpResponse(get_ajax_msg(msg, '用例信息更新成功'))
+
+# 编辑配置
+def edit_config(request):
+
+    if request.method=='POST':
+        #pdb.set_trace()
+        try:
+            id = request.POST.get('id')
+            print(id)
+            test_info = CaseInfo.objects.get_case_by_id(id)
+            print(test_info[0])
+            request=eval(test_info[0].request)
+            module_name = ModelsInfo.objects.get_module_by_id(test_info[0].belong_module_id, type=False)
+            manage_info ={
+                'info': test_info[0],
+                'module_name': module_name,
+                'request': request['config']
+            }
+            print('来到这里')
+            return render_to_response('edit_config.html',manage_info)
+        except:
+            edit_config_lists = json.loads(request.body.decode('utf-8'))
+            print('edit_config',edit_config_lists)
+            msg = config_info_logic(**edit_config_lists, type=False)
+            return HttpResponse(get_ajax_msg(msg, '配置信息更新成功'))
 
 
 
@@ -198,8 +214,6 @@ def filterAppFromSite(request):
             app_dict['name'] = str(project_name['project_name'])
             app_dict['value'] = a
             model_list.append(app_dict)
-    # print(model_list)
-    #result=json.dumps(app_list1, ensure_ascii=False)
     result = json.dumps(model_list, ensure_ascii=False)
     return HttpResponse(result)
 

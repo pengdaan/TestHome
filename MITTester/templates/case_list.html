@@ -8,8 +8,7 @@
     <title> - Bootstrap Table</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="/static/img/Mit_favicon.ico">
     <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="../../static/js/bootstrap.min.js">
@@ -72,7 +71,8 @@
                                             <td >
 {#                                                <a class="fa fa-pencil icon edit-row"  href="/edit_case.html?id={{ row.id }}"></a>#}
                                                 <a class="fa fa-pencil icon edit-row"  onclick="post('/api/edit_case/', {'id':'{{ row.id }}'})"></a>
-                                                <a class="fa fa-street-view icon view-row" onclick="post('/api/run_case/', {'id':'{{ row.id }}', 'mode':'run_by_test'})"></a>
+                                                <a class="fa fa-bug" onclick="post('/api/run_case/', {'id':'{{ row.id }}', 'mode':'run_by_test'})"></a>
+                                                <a class="fa fa-trash-o fa-fw"></a>
 
                                             </td>
                                         </tr>
@@ -99,7 +99,6 @@
     <script src="../../static/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
     <script src="../../static/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
     <script src="../../static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
-
     <!-- Peity -->
     <script src="../../static/js/bootstrap-table-demo.js"></script>
     <script>
@@ -118,12 +117,8 @@
                 success:function (data) {
                     var obj=window.open("about:blank");
                     obj.document.write(data);
-
                 }
-
             })
-
-
         }
     </script>
     <script>
@@ -142,8 +137,9 @@
     document.body.appendChild(temp);
     temp.submit();
     return temp;
-}
+   }
 </script>
+
 
 </body>
 

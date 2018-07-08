@@ -10,7 +10,7 @@
     <title> - 编辑用例</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="/static/img/Mit_favicon.ico">
     <link href="../../static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="../../static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="../../static/css/animate.css" rel="stylesheet">
@@ -65,7 +65,7 @@
                                         <div class="form-group has-success">
                                             <label for="project" class="col-md-2 control-label text-info" style="font-size: 14px;">project:</label>
                                             <div class="col-md-4">
-                                                项目：<select class="form-control Site_name" name="belong_project_id"></select>
+                                                <select class="form-control Site_name" name="belong_project_id" data-value="{{info.belong_project}}"></select>
                                                 <span class="glyphicon glyphicon-certificate form-control-feedback"
                                                       aria-hidden="true"></span>
                                         </div>
@@ -73,33 +73,14 @@
                                         <div class="form-group has-success">
                                             <label for="module" class="col-md-2 control-label text-info" style="font-size: 14px;">module:</label>
                                             <div class="col-md-4">
-                                                模块：<select class="form-control App_name"  name="models_name"></select>
+                                                <select class="form-control App_name"  name="models_name" value="{{ module_name }}">
+                                                    <option value="{{ module_name }}"></option>
+                                                </select>
                                                 <span class="glyphicon glyphicon-certificate form-control-feedback"
                                                       aria-hidden="true"></span>
                                             </div>
                                         </div>
                                     </div>
-
-{#                                    <div class="form-group has-success">#}
-{#                                        <label for="project" class="col-md-2 control-label text-info" style="font-size: 14px;">project:</label>#}
-{#                                        <div class="col-md-4">#}
-{#                                            <input type="text" class="form-control" id="project" placeholder="所属项目"#}
-{#                                                   name="belong_project" value="{{ info.belong_module.belong_project.project_name }}" readonly>#}
-{#                                            <span class="glyphicon glyphicon-certificate form-control-feedback"#}
-{#                                                  aria-hidden="true"></span>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{##}
-{#                                    <div class="form-group has-success">#}
-{#                                        <label for="module" class="col-md-2 control-label text-info" style="font-size: 14px;">module:</label>#}
-{#                                        <div class="col-md-4">#}
-{#                                            <input type="text" class="form-control" id="project" placeholder="所属模块"#}
-{#                                                   name="module" value="{{ info.belong_module.models_name }}" readonly>#}
-{#                                            <span class="glyphicon glyphicon-certificate form-control-feedback"#}
-{#                                                  aria-hidden="true"></span>#}
-{#                                        </div>#}
-{#                                    </div>#}
-
                                     <div class="form-group has-feedback has-info">
                                         <label for="include" class="col-md-2 control-label text-info" style="font-size: 14px;">include:</label>
                                         <div class="col-md-4">
@@ -526,7 +507,7 @@
                                 </form>
                             </div>
   </div>
-</div>
+                    </div>
                 </div>
             </div>
         </div>

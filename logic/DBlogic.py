@@ -142,6 +142,18 @@ class ModuleInfoManager(models.Manager):
         return self.filter(belong_project__project_name__exact=belong_project)\
             .values_list('module_name',flat=True).order_by('-create_time')
 
+    def get_module_by_id(self, index, type=True):
+        '''
+        通过id查询module
+        :param index:
+        :param type:
+        :return:
+        '''
+        if type:
+            return self.filter(id=index).all()
+        else:
+            return self.get(id=index).models_name
+
 
 '''用例信息表操作'''
 
@@ -198,7 +210,8 @@ class TestCaseInfoManager(models.Manager):
         :return:
         '''
         config_info = kwargs.get('config').pop('config_info')
-        obj = self.get(id=int(config_info.pop('test_index')))
+        config =kwargs.get('config')
+        obj = self.get(id=int(config.pop('test_index')))
         obj.name = kwargs.get('config').get('name')
         obj.author = config_info.pop('config_author')
         obj.request = kwargs
@@ -227,3 +240,5 @@ class TestCaseInfoManager(models.Manager):
             return self.filter(id=index).all()
         else:
             return self.get(id=index).name
+
+
